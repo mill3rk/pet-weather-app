@@ -1,4 +1,4 @@
-# PetWeatherApp
+# Pet Weather App
 Make sure Node.js and NPM are up to date.  If not, then run the following:
 
 Get the latest node.js (to keep ng2 CLI happy).
