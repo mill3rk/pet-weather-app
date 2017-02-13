@@ -1,0 +1,35 @@
+<form #pet="ngForm" novalidate>
+    <h2>Add you pet here!</h2>
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="pet.name" name="name" placeholder="Name" required="required"/>
+    </div>
+    <div>
+        <label>type:
+            <select name="typeId" [(ngModel)]="pet.typeId" required="required">
+                <option *ngFor="let type of types" [ngValue]="type.id">{{type.name}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>breed:
+            <select name="breedId" [(ngModel)]="pet.breedId" required="required" [disabled]="!pet.typeId">
+                <option *ngFor="let breed of breeds" [ngValue]="breed.id" [disabled]="pet.typeId !== breed.typeId">{{breed.name}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>location: </label>
+        <input [(ngModel)]="pet.location" name="location" placeholder="Location" required="required"/>
+    </div>
+    <div>
+        <label>longitude: </label>
+        <input [(ngModel)]="pet.longitude" name="longitude" placeholder="Longitude" required="required"/>
+    </div>
+    <div>
+        <label>latitude: </label>
+        <input [(ngModel)]="pet.latitude" name="latitude" placeholder="Latitude" required="required"/>
+    </div>
+    <button type="submit" (click)="save(pet.value, pet.valid)">Submit</button>
+    <button (click)="goBack()">Add</button>
+</form>

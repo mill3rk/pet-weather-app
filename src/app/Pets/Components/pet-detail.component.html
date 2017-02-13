@@ -1,0 +1,10 @@
+<div *ngIf="pet">
+    <h2>{{ pet.name }} details!</h2>
+    <div><label>id: </label>{{ pet.id }}</div>
+    <div><label>name: </label>{{ pet.name }}</div>
+    <div><label>location: </label>{{ pet.location }}</div>
+    <div><label>longitude: </label>{{ pet.longitude }}</div>
+    <div><label>latitude: </label>{{ pet.latitude }}</div>
+    <div><label>umbrella: </label>{{ pet.needsUmbrella ? 'Yes' : 'No' }}</div>
+    <button (click)="goBack()">Back</button>
+</div>
