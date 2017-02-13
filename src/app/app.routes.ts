@@ -7,8 +7,7 @@ import { PetDetailComponent } from './Pets/Components/pet-detail.component';
 import { PetCreateComponent } from './Pets/Components/pet-create.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: '/pets', pathMatch: 'full' },
   { path: 'pets', component: PetsComponent },
   { path: 'pets/create', component: PetCreateComponent },
   { path: 'pets/:id', component: PetDetailComponent }
