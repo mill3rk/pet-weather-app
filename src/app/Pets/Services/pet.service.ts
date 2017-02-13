@@ -10,7 +10,7 @@ import { Type } from '../Model/type';
 
 @Injectable()
 export class PetService {
-    private baseUrl: string = 'https://pets-shelter-api-mill3rk.c9users.io';
+    private baseUrl: string = 'https://pet-shelter-api.herokuapp.com';
     
     constructor(private http : Http){}
     
