@@ -33,7 +33,6 @@ export class PetDetailComponent implements OnInit {
                     this.pet = data;
                     this.forecastIoService.getForecastByLngLat(this.pet.longitude, this.pet.latitude)
                         .subscribe(forecast => {
-                            this.pet = data;
                             //check if its going to rain or if it's raining currently
                             this.pet.needsUmbrella = (forecast.currently.precipProbability >= 7 || forecast.currently.precipIntensity > 0);
                             console.log(forecast);
