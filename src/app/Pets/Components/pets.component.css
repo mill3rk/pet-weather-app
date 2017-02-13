@@ -3,10 +3,10 @@
     color: white;
 }
 .pets {
-    margin: 0 0 2em 0;
+    margin: 0 auto 2em auto;
     list-style-type: none;
     padding: 0;
-    width: 15em;
+    max-width: 1024px;
 }
 .pets li {
     cursor: pointer;

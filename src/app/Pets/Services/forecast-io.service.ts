@@ -16,7 +16,8 @@ export class ForecastIoService {
     getForecastByLngLat(longitude: string, latitude: string) {
         return this.jsonp
             .get(
-                `${this.baseUrl}/${this.secretKey}/${longitude},${latitude}?callback=__ng_jsonp__.__req${this.times}.finished`,
+                // `${this.baseUrl}/${this.secretKey}/${longitude},${latitude}?callback=__ng_jsonp__.__req${this.times}.finished`,
+                `${this.baseUrl}/${this.secretKey}/${longitude},${latitude}?callback=JSONP_CALLBACK`,
                 {headers: this.getHeaders()}
             )
             .map((resp:Response) => {
