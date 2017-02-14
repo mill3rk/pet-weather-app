@@ -1,7 +1,12 @@
 {
   "name": "pet-weather-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
+  "author": "Kris Miller",
+  "repository" : {
+    "type" : "git",
+    "url" : "git@github.com:mill3rk/pet-weather-app.git"
+  },
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
