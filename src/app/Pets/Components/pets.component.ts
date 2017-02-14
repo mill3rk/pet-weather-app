@@ -7,8 +7,8 @@ import { PetService } from '../Services/pet.service';
 @Component({
   moduleId: module.id,
   selector: 'pets-list',
-  templateUrl: '../Components/pets.component.html',
-  styleUrls: ['../Components/pets.component.css']
+  templateUrl: './pets.component.html',
+  styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
   pets: Pet[];

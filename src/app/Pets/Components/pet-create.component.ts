@@ -20,6 +20,7 @@ export class PetCreateComponent implements OnInit {
     public pet: Pet;
     public breeds: Breed[];
     public types: Type[];
+    public errorMessage: string;
     
     constructor(
         private petService: PetService,
@@ -41,7 +42,7 @@ export class PetCreateComponent implements OnInit {
                 },
                 // the second argument is a function which runs on error
                 err => {
-                    console.error('this is mehere', err);
+                    console.error('error', err);
                 },
                 // the third argument is a function which runs on completion
                 () => console.log('done loading')
@@ -58,8 +59,16 @@ export class PetCreateComponent implements OnInit {
         
         this.petService
             .create(pet)
-            .subscribe((resp) => {
-                console.log(resp);
-            });
+            .subscribe(
+                (resp) => {
+                    console.log(resp);
+                },
+                // the second argument is a function which runs on error
+                err => {
+                    console.error('error', err);
+                },
+                // the third argument is a function which runs on completion
+                () => console.log('done loading')
+            );
     }
 }

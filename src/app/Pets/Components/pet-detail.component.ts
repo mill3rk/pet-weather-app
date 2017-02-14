@@ -14,6 +14,7 @@ import 'rxjs/add/operator/mergeMap';
   moduleId: module.id,
   selector: 'pet-detail',
   templateUrl: './pet-detail.component.html',
+  styleUrls: ['./pet-detail.component.css']
 })
 export class PetDetailComponent implements OnInit {
     @Input() pet: Pet

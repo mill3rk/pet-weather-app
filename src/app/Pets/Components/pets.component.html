@@ -1,8 +1,18 @@
-<h2>Pets</h2>
-<ul class="pets">
-    <li *ngFor="let pet of pets"
-        (click)="gotoDetail(pet)"
-        [class.selected]="pet === selectedPet">
-        <span class="badge">{{pet.id}}</span> {{pet.name}} / {{ pet.Type.name }} / {{ pet.Breed.name }}
-    </li>
-</ul>
+<div class="row">
+  <div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let pet of pets">
+    <div class="thumbnail">
+      <img alt="150x150" data-src="holder.js/150x150" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTVhM2E1NjE5NDEgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWEzYTU2MTk0MSI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS4xIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" class="img-circle" style="height: 150px; width: 150px; display: block;">
+      <div class="caption">
+        <h3>{{pet.name}}</h3>
+        <p>
+            {{ pet.Type.name }}<br/>
+            {{ pet.Breed.name }}<br/>
+            {{ pet.location }}
+        </p>
+        <p>
+            <button style="button" (click)="gotoDetail(pet)" class="btn btn-primary" role="button">View Details</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

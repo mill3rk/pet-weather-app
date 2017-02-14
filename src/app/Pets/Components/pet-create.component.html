@@ -1,35 +1,37 @@
 <form #pet="ngForm" novalidate>
     <h2>Add you pet here!</h2>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="pet.name" name="name" placeholder="Name" required="required"/>
-    </div>
-    <div>
-        <label>type:
-            <select name="typeId" [(ngModel)]="pet.typeId" required="required">
+    <div class="row col-sm-6 center-block">
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input [(ngModel)]="pet.name" name="name" id="name" placeholder="Name" type="text" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label>Type:</label>
+            <select name="typeId" id="typeId" [(ngModel)]="pet.typeId" class="form-control" required="required">
                 <option *ngFor="let type of types" [ngValue]="type.id">{{type.name}}</option>
             </select>
-        </label>
-    </div>
-    <div>
-        <label>breed:
-            <select name="breedId" [(ngModel)]="pet.breedId" required="required" [disabled]="!pet.typeId">
+        </div>
+        <div class="form-group">
+            <label>Breed:</label>
+            <select name="breedId" id="breedId" [(ngModel)]="pet.breedId" class="form-control" required="required" [disabled]="!pet.typeId">
                 <option *ngFor="let breed of breeds" [ngValue]="breed.id" [disabled]="pet.typeId !== breed.typeId">{{breed.name}}</option>
             </select>
-        </label>
+        </div>
+        <div class="form-group">
+            <label for="location">Location: </label>
+            <input [(ngModel)]="pet.location" name="location" id="location" placeholder="Location" type="text" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="longitude">Longitude: </label>
+            <input [(ngModel)]="pet.longitude" name="longitude" id="longitude" placeholder="Longitude" type="text" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="latitude">Latitude: </label>
+            <input [(ngModel)]="pet.latitude" name="latitude" id="latitude" placeholder="Latitude" type="text" class="form-control" required="required"/>
+        </div>
+        
+        
+        <button type="submit" (click)="save(pet.value, pet.valid)" class="btn btn-primary" role="button">Submit</button>
+        <button type="button" (click)="goBack()" class="btn btn-default" role="button">Cancel</button>
     </div>
-    <div>
-        <label>location: </label>
-        <input [(ngModel)]="pet.location" name="location" placeholder="Location" required="required"/>
-    </div>
-    <div>
-        <label>longitude: </label>
-        <input [(ngModel)]="pet.longitude" name="longitude" placeholder="Longitude" required="required"/>
-    </div>
-    <div>
-        <label>latitude: </label>
-        <input [(ngModel)]="pet.latitude" name="latitude" placeholder="Latitude" required="required"/>
-    </div>
-    <button type="submit" (click)="save(pet.value, pet.valid)">Submit</button>
-    <button (click)="goBack()">Cancel</button>
 </form>

@@ -8,9 +8,11 @@ import { Pet as PetInterface } from '../Interfaces/pet.interface';
 import { Breed } from '../Model/breed';
 import { Type } from '../Model/type';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable()
 export class PetService {
-    private baseUrl: string = 'https://pet-shelter-api.herokuapp.com';
+    private baseUrl: string = environment.apiUrl;
     
     constructor(private http : Http){}
     
