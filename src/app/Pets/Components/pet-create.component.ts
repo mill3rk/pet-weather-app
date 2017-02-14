@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Response } from '@angular/http';
 
@@ -17,14 +17,15 @@ import 'rxjs/add/operator/mergeMap';
   templateUrl: './pet-create.component.html',
 })
 export class PetCreateComponent implements OnInit {
-    public pet: Pet;
-    public breeds: Breed[];
-    public types: Type[];
-    public errorMessage: string;
+    pet: Pet;
+    breeds: Breed[];
+    types: Type[];
+    errorMessage: string;
     
     constructor(
         private petService: PetService,
         private route: ActivatedRoute,
+        private router: Router,
         private location: Location
     ) {}
     
@@ -54,18 +55,23 @@ export class PetCreateComponent implements OnInit {
     }
     
     save(pet: Pet, isValid: boolean) {
-        console.log('pet', pet);
-        console.log('isValid', isValid);
+        if (!isValid) {
+            this.errorMessage = 'Please finish filling out the form!';
+            return;
+        }
         
         this.petService
             .create(pet)
             .subscribe(
                 (resp) => {
                     console.log(resp);
+                    this.router.navigate(['/pets']);
                 },
                 // the second argument is a function which runs on error
-                err => {
-                    console.error('error', err);
+                (err) => {
+                    let errorTemp = err.json();
+                    this.errorMessage = errorTemp.message.substring(errorTemp.message.lastIndexOf("[")+1, errorTemp.message.lastIndexOf("]"));
+                    console.error('error', errorTemp);
                 },
                 // the third argument is a function which runs on completion
                 () => console.log('done loading')

@@ -1,4 +1,8 @@
 <form #pet="ngForm" novalidate>
+    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" (click)="errorMessage = null" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ errorMessage }}
+    </div>
     <h2>Add you pet here!</h2>
     <div class="row col-sm-6 center-block">
         <div class="form-group">
